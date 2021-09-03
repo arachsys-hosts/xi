@@ -1,4 +1,4 @@
-# Linux/x86 5.13.12 Kernel Configuration
+# Linux/x86 5.14.1 Kernel Configuration
 #
 # CONFIG_LOCALVERSION_AUTO is not set
 CONFIG_KERNEL_ZSTD=y
@@ -10,6 +10,9 @@ CONFIG_BPF_SYSCALL=y
 CONFIG_BPF_JIT=y
 CONFIG_BPF_JIT_ALWAYS_ON=y
 CONFIG_PREEMPT=y
+CONFIG_SCHED_CORE=y
+CONFIG_TASKSTATS=y
+CONFIG_TASK_DELAY_ACCT=y
 CONFIG_PSI=y
 CONFIG_IKCONFIG=y
 CONFIG_IKCONFIG_PROC=y
@@ -71,6 +74,7 @@ CONFIG_CPU_IDLE_GOV_MENU=y
 CONFIG_INTEL_IDLE=y
 # CONFIG_PCI_MMCONFIG is not set
 # CONFIG_ISA_DMA_API is not set
+CONFIG_X86_SYSFB=y
 CONFIG_EFI_VARS=y
 CONFIG_KVM=y
 # CONFIG_KVM_WERROR is not set
@@ -191,7 +195,7 @@ CONFIG_PCIEPORTBUS=y
 CONFIG_PCIEAER=y
 CONFIG_DEVTMPFS=y
 CONFIG_DEVTMPFS_MOUNT=y
-CONFIG_EXTRA_FIRMWARE="amd-ucode/microcode_amd_fam17h.bin amdgpu/renoir_asd.bin amdgpu/renoir_ce.bin amdgpu/renoir_dmcub.bin amdgpu/renoir_gpu_info.bin amdgpu/renoir_me.bin amdgpu/renoir_mec.bin amdgpu/renoir_mec2.bin amdgpu/renoir_pfp.bin amdgpu/renoir_rlc.bin amdgpu/renoir_sdma.bin amdgpu/renoir_ta.bin amdgpu/renoir_vcn.bin iwlwifi-cc-a0-63.ucode regulatory.db"
+CONFIG_EXTRA_FIRMWARE="amd-ucode/microcode_amd_fam17h.bin amdgpu/renoir_asd.bin amdgpu/renoir_ce.bin amdgpu/renoir_dmcub.bin amdgpu/renoir_gpu_info.bin amdgpu/renoir_me.bin amdgpu/renoir_mec.bin amdgpu/renoir_mec2.bin amdgpu/renoir_pfp.bin amdgpu/renoir_rlc.bin amdgpu/renoir_sdma.bin amdgpu/renoir_ta.bin amdgpu/renoir_vcn.bin iwlwifi-cc-a0-64.ucode regulatory.db"
 CONFIG_EXTRA_FIRMWARE_DIR="../firmware"
 CONFIG_CONNECTOR=y
 CONFIG_ZRAM=y
@@ -340,9 +344,8 @@ CONFIG_DRM_AMDGPU=y
 CONFIG_DRM_AMD_ACP=y
 CONFIG_DRM_AMD_DC_HDCP=y
 CONFIG_HSA_AMD=y
-CONFIG_FB_MODE_HELPERS=y
-CONFIG_FB_TILEBLITTING=y
-CONFIG_FB_EFI=y
+CONFIG_DRM_SIMPLEDRM=y
+CONFIG_FB=y
 # CONFIG_VGA_CONSOLE is not set
 CONFIG_FRAMEBUFFER_CONSOLE=y
 CONFIG_SOUND=y
@@ -459,5 +462,4 @@ CONFIG_PANIC_TIMEOUT=5
 # CONFIG_X86_VERBOSE_BOOTUP is not set
 # CONFIG_EARLY_PRINTK is not set
 # CONFIG_X86_DEBUG_FPU is not set
-CONFIG_UNWINDER_FRAME_POINTER=y
 # CONFIG_RUNTIME_TESTING_MENU is not set
