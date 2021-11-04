@@ -1,4 +1,4 @@
-# Linux/x86 5.14.6 Kernel Configuration
+# Linux/x86 5.15 Kernel Configuration
 #
 # CONFIG_LOCALVERSION_AUTO is not set
 CONFIG_KERNEL_ZSTD=y
@@ -52,6 +52,7 @@ CONFIG_SMP=y
 CONFIG_MICROCODE_AMD=y
 CONFIG_X86_CPUID=y
 CONFIG_AMD_MEM_ENCRYPT=y
+CONFIG_AMD_MEM_ENCRYPT_ACTIVE_BY_DEFAULT=y
 CONFIG_NUMA=y
 # CONFIG_AMD_NUMA is not set
 CONFIG_MTRR_SANITIZER_ENABLE_DEFAULT=1
@@ -74,8 +75,6 @@ CONFIG_CPU_IDLE_GOV_MENU=y
 CONFIG_INTEL_IDLE=y
 # CONFIG_PCI_MMCONFIG is not set
 # CONFIG_ISA_DMA_API is not set
-CONFIG_X86_SYSFB=y
-CONFIG_EFI_VARS=y
 CONFIG_KVM=y
 # CONFIG_KVM_WERROR is not set
 CONFIG_KVM_AMD=y
@@ -195,9 +194,11 @@ CONFIG_PCIEPORTBUS=y
 CONFIG_PCIEAER=y
 CONFIG_DEVTMPFS=y
 CONFIG_DEVTMPFS_MOUNT=y
-CONFIG_EXTRA_FIRMWARE="amd-ucode/microcode_amd_fam17h.bin amdgpu/renoir_asd.bin amdgpu/renoir_ce.bin amdgpu/renoir_dmcub.bin amdgpu/renoir_gpu_info.bin amdgpu/renoir_me.bin amdgpu/renoir_mec.bin amdgpu/renoir_mec2.bin amdgpu/renoir_pfp.bin amdgpu/renoir_rlc.bin amdgpu/renoir_sdma.bin amdgpu/renoir_ta.bin amdgpu/renoir_vcn.bin iwlwifi-cc-a0-64.ucode regulatory.db"
+CONFIG_EXTRA_FIRMWARE="amd-ucode/microcode_amd_fam17h.bin amdgpu/renoir_asd.bin amdgpu/renoir_ce.bin amdgpu/renoir_dmcub.bin amdgpu/renoir_gpu_info.bin amdgpu/renoir_me.bin amdgpu/renoir_mec.bin amdgpu/renoir_mec2.bin amdgpu/renoir_pfp.bin amdgpu/renoir_rlc.bin amdgpu/renoir_sdma.bin amdgpu/renoir_ta.bin amdgpu/renoir_vcn.bin iwlwifi-cc-a0-66.ucode regulatory.db"
 CONFIG_EXTRA_FIRMWARE_DIR="../firmware"
 CONFIG_CONNECTOR=y
+CONFIG_SYSFB_SIMPLEFB=y
+CONFIG_EFI_VARS=y
 CONFIG_ZRAM=y
 CONFIG_BLK_DEV_LOOP=y
 CONFIG_BLK_DEV_LOOP_MIN_COUNT=0
@@ -254,6 +255,7 @@ CONFIG_VETH=y
 # CONFIG_NET_VENDOR_HUAWEI is not set
 # CONFIG_NET_VENDOR_INTEL is not set
 # CONFIG_NET_VENDOR_MICROSOFT is not set
+# CONFIG_NET_VENDOR_LITEX is not set
 # CONFIG_NET_VENDOR_MARVELL is not set
 # CONFIG_NET_VENDOR_MELLANOX is not set
 # CONFIG_NET_VENDOR_MICREL is not set
@@ -331,6 +333,7 @@ CONFIG_RANDOM_TRUST_BOOTLOADER=y
 # CONFIG_I2C_COMPAT is not set
 CONFIG_I2C_CHARDEV=y
 CONFIG_I2C_I801=y
+# CONFIG_PTP_1588_CLOCK is not set
 CONFIG_PINCTRL=y
 CONFIG_PINCTRL_AMD=y
 # CONFIG_GPIO_CDEV_V1 is not set
@@ -385,6 +388,8 @@ CONFIG_AMD_IOMMU=y
 CONFIG_EXT4_FS=y
 CONFIG_EXT4_FS_POSIX_ACL=y
 CONFIG_EXT4_FS_SECURITY=y
+CONFIG_BCACHEFS_FS=y
+CONFIG_BCACHEFS_POSIX_ACL=y
 CONFIG_FS_ENCRYPTION=y
 CONFIG_FS_ENCRYPTION_INLINE_CRYPT=y
 # CONFIG_DNOTIFY is not set
@@ -424,6 +429,7 @@ CONFIG_HARDENED_USERCOPY=y
 # CONFIG_HARDENED_USERCOPY_FALLBACK is not set
 CONFIG_FORTIFY_SOURCE=y
 CONFIG_LSM=""
+CONFIG_INIT_STACK_NONE=y
 CONFIG_CRYPTO_RSA=y
 CONFIG_CRYPTO_CURVE25519=y
 CONFIG_CRYPTO_CHACHA20POLY1305=y
@@ -453,7 +459,6 @@ CONFIG_CRYPTO_USER_API_AEAD=y
 # CONFIG_CRYPTO_HW is not set
 CONFIG_ASYMMETRIC_KEY_TYPE=y
 CONFIG_ASYMMETRIC_PUBLIC_KEY_SUBTYPE=y
-CONFIG_CRC64=y
 CONFIG_PRINTK_TIME=y
 # CONFIG_DEBUG_MISC is not set
 CONFIG_PANIC_TIMEOUT=5
