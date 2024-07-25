@@ -17,6 +17,11 @@ start() {
   ln -f -n -s fd/1 /dev/stdout
   ln -f -n -s fd/2 /dev/stderr
 
+  ueventwait PRODUCT=5e3/610/6052 | while read SYSPATH; do
+    echo 0 >$SYSPATH/authorized
+  done &
+  disown $!
+
   if ZRAM=$(zramctl -f -s 1G); then
     mkswap $ZRAM >/dev/null
     swapon -d $ZRAM
@@ -44,7 +49,6 @@ start() {
   iw reg set US
 
   syslogd -k
-  ueventd -t
   daemon -p /run/iwd.pid -r -w /dev/log iwd
   ssh-keygen -A && $(type -P sshd)
   ntpd -p /run/ntpd.pid
