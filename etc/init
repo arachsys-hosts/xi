@@ -51,7 +51,7 @@ start() {
   syslogd -k
   daemon -p /run/iwd.pid -r iwd
   ssh-keygen -A && $(type -P sshd)
-  ntpd -p /run/ntpd.pid
+  ntpd -p /run/ntpd.pid -s
   daemon /etc/wireguard
   test -w / && users start
 
