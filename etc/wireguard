@@ -1,12 +1,9 @@
-#!/bin/bash -e
+[Interface]
+ListenPort = 51280
+PrivateKey = AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 
-ip link add wg0 type wireguard
-wg set wg0 listen-port 51280 private-key /dev/stdin \
-  <<< "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
-wg set wg0 peer "MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDA=" \
-  allowed-ips ::/0 endpoint hetzner.arachsys.com:51280 persistent-keepalive 25
-
-ip link set wg0 up
-ip address add 2a01:4f8:c17:ac0f::10 dev wg0
-ip route add 2a01:4f8:c17:ac0f::/64 dev wg0 table 1
-ip -6 rule add not to 2a01:4f8:c17:ac0f::1 table 1
+[Peer]
+AllowedIPs = ::/0
+Endpoint = hetzner.arachsys.com:51280
+PersistentKeepalive = 25
+PublicKey = AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
