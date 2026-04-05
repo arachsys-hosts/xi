@@ -15,6 +15,7 @@ ipmitool
 iproute2
 iw
 iwd
+jq
 kakoune
 kmod
 ldns-tools
